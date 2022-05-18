@@ -1,0 +1,22 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+        int n=digits.length;
+        int arr[] = new int[n];
+        int arr2[] = new int[n+1];
+        int i=n-1;
+        int k=1;
+        while(i>=0) {
+            arr[i]= (digits[i]+k)%10;
+            k=(digits[i]+k)/10;
+            i--;
+        }
+        if(k!=0) {
+            arr2[0]=k;
+            for(int j=1;j<arr2.length;j++) {
+                arr2[j]=arr[j-1];
+            }
+            return arr2;
+        }
+        return arr;
+    }
+}
